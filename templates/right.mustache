@@ -1,0 +1,170 @@
+
+{{#page_toc}}
+<div class="body-toc d-none d-sm-none  d-md-block" id="body-toc">
+    <div class="d-flex">
+        <a class="toc-btn p-2" href="#">
+            <i class="bi bi-chevron-up"></i>
+        </a> 
+        <a class="toc-btn p-2"  role="button" onclick="tocLevel1()" > 
+        <i class="bi bi-dice-1"></i>
+        </a>  
+        <a class="toc-btn p-2" role="button" onclick="tocLevel2()" > 
+        <i class="bi bi-dice-2"></i>
+        </a> 
+        <a class="toc-btn p-2" role="button" onclick="tocLevel3()" > 
+        <i class="bi bi-dice-3"></i>
+        </a> 
+        <a class="toc-btn p-2" href="#footer">
+            <i class="bi bi-chevron-down"></i>
+        </a> 
+    </div>  
+
+    {{{html}}}
+
+</div >
+
+
+<div class="position-fixed bottom-0 end-0  me-4 mb-3 d-block d-md-none ">
+<i class="bi bi-list-ol i-lg" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight"  id="toc-button" role="button" onclick="mobileToc()" ></i>
+</div>
+
+{{/page_toc}}
+
+
+<script type="text/javascript">  
+
+/*
+****************************************
+*** 点击列表展开，隐藏兄弟列表的子列表
+****************************************
+*/  
+var tocWrap=document.getElementById("toc");
+tocWrap.addEventListener("click", function(event){
+    var elementClicked = event.target;
+    var liClicked = elementClicked.parentNode.parentNode;
+    var parentsUl = liClicked.parentNode;
+    var parentsLi = parentsUl.parentNode;
+    var firstChildLi = liClicked.querySelector('ul > li');
+
+    console.log("点击的li：" , liClicked.getAttribute("class"), '标签：'+ liClicked.tagName );
+    console.log('父ul节点：' , parentsUl.getAttribute("class"), '标签：'+ parentsUl.tagName  );
+    console.log('父li节点：', parentsLi.getAttribute("class"), '标签：'+ parentsLi.tagName  );
+    
+    // 用querySelectorAll会简单些，暂时未选择出
+    
+    // 查看li的子代li是否存在，是否开启显示
+    var childLiIsOpen=false;
+    if (firstChildLi && firstChildLi.style.display==="block"){   
+       childLiIsOpen=true;
+       console.log("子列表是打开的，设置childLiIsOpen=true" );
+    } 
+    
+    // 只显示1级标签，隐藏其他等级li
+    tocLevel1()
+        
+    // 显示同等级li，
+    var currentLi = liClicked;
+    while (currentLi.classList[0] != 'toclevel-1'){
+        var parentsUlChildNodes = currentLi.parentNode.childNodes;
+        console.log("同等级li的所有后代：" ,  parentsUlChildNodes);
+         for (var i=0; i<parentsUlChildNodes.length; i++){
+            //console.log('tagName：', ulChildNodes[i].tagName); 
+            if (parentsUlChildNodes[i].tagName === 'LI'){ 
+               console.log("找到同等级li：", parentsUlChildNodes[i]); 
+                parentsUlChildNodes[i].style.display='block';
+
+            }
+        }  
+        currentLi = currentLi.parentNode.parentNode;
+   } 
+    
+    // 如果li的子ul存在且之前没有显示，就显示
+    if(! childLiIsOpen ){
+        var childUl = liClicked.querySelector('ul');
+        var ulChildNodes = childUl.childNodes;
+        console.log("点击li的子代：" ,  ulChildNodes);  
+        
+        for (var i=0; i<ulChildNodes.length; i++){
+            //console.log('tagName：', ulChildNodes[i].tagName); 
+            if (ulChildNodes[i].tagName === 'LI'){   
+                ulChildNodes[i].style.display='block';
+            }
+        }  
+        
+    }  
+    console.log("------点击完成------");       
+    
+});
+
+/*
+****************************************
+*** 列表工具栏
+****************************************
+*/
+
+var toc1s = tocWrap.getElementsByClassName("toclevel-1");  //一级列表所有li
+var toc2s = tocWrap.getElementsByClassName("toclevel-2");
+var toc3s = tocWrap.getElementsByClassName("toclevel-3");
+
+//显示1级列表
+function tocLevel1(){
+    elementsSetDisplay(toc2s, "none");
+    elementsSetDisplay(toc3s, "none");
+}
+
+//显示2级列表
+function tocLevel2(){ 
+    elementsSetDisplay(toc2s, "block");
+    elementsSetDisplay(toc3s, "none");
+}
+
+//显示3级列表
+function tocLevel3(){ 
+    elementsSetDisplay(toc2s, "block");
+    elementsSetDisplay(toc3s, "block");
+}
+
+
+/*
+****************************************
+*** 内部函数
+****************************************
+*/
+ 
+function elementsSetDisplay(elements, displayAttr){
+    for (var i=0; i<elements.length; i++){
+        elements[i].style.display=displayAttr;
+    }    
+}
+/*
+****************************************
+*** 手机显示悬浮目录
+****************************************
+*/
+
+var isTocShow = false;
+var sideTocDiv = document.getElementById("body-toc");
+var sideTocOriginClass = sideTocDiv.className;
+
+function mobileToc(){
+    console.log("------点击mobileToc1------");     
+    console.log(sideTocDiv);     
+
+    if(! isTocShow){
+        console.log("浮动toc当前没显示"); 
+        sideTocDiv.className = "bd-toc";
+        sideTocDiv.style.cssText= 'display: block; position: fixed; top: 100px; right: 0px; max-width: 350px; max-height: 500px; overflow-y: scroll;  border-radius: 0 0 1px 1px; -moz-border-radius: 0 0 1px 1px; background: rgba(255,255,255,0.97); padding: 12px; box-shadow: 0px 0px 12px 1px rgb(87 87 87 / 20%)';
+        isTocShow = true;
+    }else{
+        sideTocDiv.className = sideTocOriginClass;
+        sideTocDiv.style.cssText= "";
+        isTocShow = false;
+    }
+    
+
+}
+
+
+</script>    
+
+

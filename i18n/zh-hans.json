@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"authors": [ "..." ]
+	},
+	"skinname-mediaboot": "MediaBoot",
+	"mediaboot-desc": "基于Bootstrap的Mediawiki皮肤，当前版本使用Bootstrap 5。名字来自Medaiwiki和Bootstrap的缩写。"
+}

@@ -1,0 +1,63 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light" role="navigation">
+    <div class="container-fluid">
+    
+    {{!  导航   }}
+    <div class="collapse navbar-collapse me-auto" id="navbarSupportedContent">
+         {{!  主页   }}
+    <a class="navbar-brand pull-left" href="/">
+       {{msg-sitetitle}}
+    </a>  
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{#nav_group}}
+        <li class="nav-item dropdown"  >
+            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenu1" role="button" data-bs-toggle="dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" title="{{html-tooltip}}" aria-labelledby="{{id}}-label">
+              <span id="{{id}}-label" {{{html-user-language-attributes}}}>{{label}}</span>  
+            </a>  
+                <ul class="dropdown-menu " aria-labelledby="dropdownMenu1" {{{html-user-language-attributes}}} >            
+                    {{{html-items}}}
+                </ul>             
+        </li>
+        {{/nav_group}}
+        </ul>
+    </div>
+
+     {{!  导航折叠后, 菜单按钮    }}
+    <button class="border-0 navbar-toggler me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> 
+
+    </button>      
+
+
+  
+        {{!  搜索框    }}
+        <div class="nav-item  me-2">          
+            {{#data-search-box}}
+            <form  class="bd-search d-flex align-items-center rounded-pill" action="{{form-action}}" role="search" class="mw-portlet" id="p-search">
+                <input type="hidden" name="title" value="{{page-title}}">
+                {{{html-input}}}
+                {{{html-button-search}}}
+            </form>
+            {{/data-search-box}}
+        </div> 
+        {{!  用户按钮    }}                           
+        <div class="dropdown nav-item">
+            <a class=" ml-2 " id="user-tools" role="button" data-bs-toggle="dropdown" aria-expanded="false" data-hover="dropdown">
+            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-person-circle" fill="%23666" xmlns="http://www.w3.org/2000/svg">
+              <path d="M13.468 12.37C12.758 11.226 11.195 10 8 10s-4.757 1.225-5.468 2.37A6.987 6.987 0 0 0 8 15a6.987 6.987 0 0 0 5.468-2.63z"/>
+              <path fill-rule="evenodd" d="M8 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+              <path fill-rule="evenodd" d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zM0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8z"/>
+            </svg>   
+            </a>    
+            {{!  用户登录   }}
+            {{#data-portlets}}   
+                {{#data-personal}}
+                <div class="dropdown-menu  dropdown-menu-end" aria-labelledby="user-tools"  {{{html-user-language-attributes}}}>
+                    {{{html-items}}}
+                </div>
+                {{/data-personal}}
+            {{/data-portlets}}
+        </div> 
+    </div>
+    
+    
+</nav>

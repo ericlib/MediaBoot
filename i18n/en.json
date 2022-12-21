@@ -1,0 +1,7 @@
+{
+	"@metadata": {
+		"authors": [ "..." ]
+	},
+	"skinname-mediaboot": "MediaBoot",
+	"mediaboot-desc": "A Bootstrap5-based Mediawiki skin"
+}

@@ -1,0 +1,56 @@
+
+
+<div class="d-flex align-items-center" id="heading-div">
+{{! 标题}}
+<h1 class="firstHeading border-0 me-4" {{{html-user-language-attributes}}}>{{{html-title}}}</h1>
+
+<div id="siteNotice">{{{html-site-notice}}}</div>
+{{{html-user-message}}}
+<div class="mw-indicators mw-body-content">
+{{#array-indicators}}
+<div id="{{id}}" class="{{class}}">{{{html}}}</div>
+{{/array-indicators}}
+</div>
+</div>
+
+{{! 子标题 子页面返回主页面}}
+<div id="contentSub">
+    {{{html-subtitle}}}
+    {{{html-undelete-link}}}
+</div>
+
+{{! 页面工具}}
+{{#data-portlets}}
+<div class="d-flex mb-2" id="page-tools">
+    {{! 页面和讨论}}
+    {{#data-namespaces}}
+        <ul class="d-flex me-auto list-inline" {{{html-user-language-attributes}}}>
+            {{{html-items}}}
+        </ul>
+    {{/data-namespaces}}
+    {{! ???}}
+    {{#data-variants}}
+        <ul  class="d-flex list-unstyled" {{{html-user-language-attributes}}}>
+            {{{html-items}}}
+        </ul>
+    {{/data-variants}}
+    {{! 查看编辑历史}}
+    {{#data-views}}
+        <ul class="d-flex list-unstyled" {{{html-user-language-attributes}}}>
+            {{{html-items}}}
+        </ul>
+    {{/data-views}}
+    {{! 删除移动保护监视}}
+    {{#data-actions}}
+    <div class="dropdown d-flex ">
+      <i class="bi bi-gear i-md" role="button" id="dropdownActions" data-bs-toggle="dropdown" aria-expanded="false"></i>
+      <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownActions">
+         {{{html-items}}}
+      </ul>
+    </div>    
+    {{/data-actions}}
+</div>
+{{/data-portlets}}
+
+ {{! 正文}}
+{{{ page_content}}}

@@ -1,0 +1,50 @@
+
+    <div id="footer" class="container " role="contentinfo" {{{html-user-language-attributes}}}>
+
+      {{#data-footer}}
+      <div class="row">
+        {{!  信息:最后编辑}}
+        {{#data-info}}
+        <ul class="list-unstyled" id="{{id}}">
+            {{#array-items}}
+            <li id="{{id}}">{{{html}}}</li>
+            {{/array-items}}
+            </ul>
+        {{/data-info}}
+      </div>
+      
+      
+      
+      <div class="row ">
+        <div class="col-6 ">
+            {{!  隐私关于免责}}
+            {{#data-places}}
+                <ul class="nav ">
+                {{#array-items}}
+                <li class="nav-item me-2" id="{{id}}">{{{html}}}</li>
+                {{/array-items}}
+                </ul>
+            {{/data-places}}        
+        </div>
+        <div class="col-5  justify-content-end">
+            {{! 图标}}
+            {{#data-icons}}
+            <ul class="nav " id="{{id}}">
+                {{#array-items}}
+                <li class="nav-item m-1" id="{{id}}">{{{html}}}</li>
+                {{/array-items}}
+                </ul>
+            {{/data-icons}}        
+        </div>
+        
+      </div>
+      
+      <div class="row">
+      <a href="https://beian.miit.gov.cn/" target="_blank">粤ICP备XXXXXXXX号</a>
+      </div>
+      
+      {{/data-footer}}
+
+        <!-- todo: replace with .mixin-clearfix -->
+        <div class="visualClear"></div>
+    </div>

@@ -1,0 +1,363 @@
+.navbar-light {
+    background: #fff!important;
+    /* box-shadow: 0 0.125rem 0.25rem 0 rgba(0,0,0,.11);*/
+    box-shadow: 0px 0px 12px 1px rgb(87 87 87 / 20%);
+}
+
+/* 全屏 
+body设置flex column  height: 100%
+footer设置margin-top: auto */
+html,body {
+     height: 100%!important;
+}
+
+body {
+    padding: 0;
+	font-size: 0.98em;
+	line-height: 1.5;
+    display: flex!important;
+    flex-direction: column!important;
+
+}
+
+#middle-body {
+    padding: 0;
+    margin:auto;
+
+}
+
+/* 换行 */
+#body-content {
+	word-wrap: break-word;
+    padding: 1rem 15px 3rem 15px!important; 
+    /* box-shadow: 0px 0px 12px 1px rgb(87 87 87 / 20%); 主体阴影，有点影响阅读*/
+}
+/* 
+@media (min-width: 768px) {
+   #body-content{
+    margin-top:15px;
+}
+}
+*/
+
+h1 {
+   font-size: 2em; 
+}
+h2 {
+    font-size: 1.8em;
+    margin-top: .7em;
+    margin-bottom: 0.5em;
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 1.4em;
+    margin-top: .7em;
+}
+
+h4 {
+    font-size: 1.2em;
+    margin-top: .2em;
+}
+
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1.0em;
+}
+
+
+/* 图标 */
+i {
+    color: #666;
+}
+
+
+/* 中等图标 */
+.i-md,
+.toc-btn i {
+    font-size: 1.05em; 
+}
+
+.i-lg {
+    font-size: 2em; 
+}
+
+h1 {
+    
+}
+
+/* 超链接  去下划线 */
+a {
+    color: #06c;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #000056;
+    text-decoration: none;
+}
+
+
+a.external {
+    padding-right: 13px;
+    content: "";
+    background-image: url("data:image/svg+xml,<svg viewBox='0 0 16 16' fill='%23333' xmlns='http://www.w3.org/2000/svg'><path fill-rule='evenodd' d='M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z'/><path fill-rule='evenodd' d='M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z'/></svg>");
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: 0.6rem 0.6rem;
+}
+
+
+
+button {
+    outline:none;
+
+}
+
+
+
+.dropdown-menu a{
+  padding: .25rem 1.5rem;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;    
+}
+.dropdown-menu {
+    display: none;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.dropdown:hover .dropdown-menu-end {
+    display: block;
+    right:0;
+    left:auto;
+}
+
+
+#p-search {
+    position: relative;
+    vertical-align: middle;
+}
+
+#searchInput {
+    border-radius:0;
+    border: 1px solid #e5e5e5;
+    padding-left: 1.6em;
+    color: #495057;
+
+}
+.bd-search #searchButton {
+    position: absolute;
+    margin-left: 0.5em;
+    min-width: 20px;
+    width: 1.42857143em;
+    min-height: 20px;
+    height: 100%;
+    border: 0;
+    background-color: transparent;
+    background-image: url('data:image/svg+xml;utf8,<svg width="0.6em" height="0.6em" viewBox="0 0 16 16" class="bi bi-search" fill="%23666" xmlns="http://www.w3.org/2000/svg"> <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/></svg>'); 
+   background-repeat: no-repeat;
+   background-position: left;
+   background-size: 1em 1em;
+   display: inline-block;
+}
+
+
+ul {
+    margin:0;
+}
+
+li {
+    padding: 0 1.2rem 0 0;
+}
+.mw-parser-output li {
+    padding: 0;
+}
+
+.mw-code, 
+code,
+pre {
+    background-color: #f8f9fa;
+    color: #222;
+    overflow: auto;
+    word-wrap: normal;
+    white-space: pre-wrap;
+}
+
+/* 屏幕右侧 工具+目录 div */
+/*
+
+/* 屏幕右侧目录 div */
+#body-toc{
+    -ms-flex-order:2;
+    order:2;
+    position: -webkit-sticky;
+    position: sticky;
+    top:3rem;
+    height:78vh; 
+    overflow-y:auto;
+    padding-top:1.5rem;
+    padding-bottom:1.5rem;
+    font-size:.875rem
+}
+@media (min-width: 768px) {
+    #body-toc{
+    height:78vh; 
+    }
+}
+@media (min-width: 1200px) {
+    #body-toc{
+    height:calc(100vh - 15.5rem); 
+    }
+}
+ 
+
+
+
+
+/* 目录  */
+
+#toc {
+    border:0;
+    border-left:1px solid #bbb;
+    background: transparent;
+    padding: 0;
+        
+}
+
+.tocnumber {
+  display: none;
+}
+
+
+#toc ul {
+  margin:0;
+}
+
+#toc a{
+    display:block;
+    color:#999;
+}
+
+#toc .toctitle {
+    display: none;
+}
+
+.toclevel-1 > a {
+    border-left: .25em solid #bbb;
+}
+
+.toclevel-1 > a > .toctext  {
+    font-size: 1.1em;
+    padding-left: .22rem;
+}
+
+#toc ul li.toclevel-2 .toctext {
+    font-size: 1em;
+    padding-left: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;     
+}
+#toc ul li.toclevel-3 .toctext {
+    font-size: 0.9em;
+    padding-left: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;    
+}
+
+#toc ul li.toclevel-2{
+    display: none;
+}
+
+
+#toc ul li.toclevel-4,
+#toc ul li.toclevel-5 {
+    display: none;
+}
+
+
+#toc-button {
+   
+}
+
+
+
+#toc a:hover{
+    color: #06c;
+}
+
+/* 表格 */
+
+#body-content table{
+    width:auto!important;
+    display: block;
+    overflow: auto;
+    max-width: 100%;
+    margin-bottom: 1rem
+}
+
+table {
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+
+
+
+
+
+th, td {
+  border: 1px solid #eee;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+th {
+    background: #F8F9FA;
+}
+
+table tr:hover{
+    background: #F8F9FA;
+}
+
+/* 隐藏编辑章节的文字和[]符号，用图标代替 */
+.mw-editsection a {
+   color: transparent;
+    background-image: url('data:image/svg+xml;utf8,<svg width="0.6em" height="0.6em" viewBox="0 0 16 16" class="bi bi-pencil-square" fill="%23666" xmlns="http://www.w3.org/2000/svg"><path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456l-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/><path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/></svg>'); 
+   background-repeat: no-repeat;
+   background-position: left bottom;
+   background-size: 1rem 1rem;
+   display: inline-block;
+   padding: 2em 0 0 0;
+
+}
+
+.mw-editsection-bracket {
+    display: none;
+}
+
+.catlinks {
+    border:0;
+    background-color: transparent
+}
+
+footer, footer a{
+    font-size: 0.9em;
+    color: #f8f9fa;
+}
+
+footer a.external {
+    padding: 0 0.5em;
+    content: "";
+    background-image:None;
+}
+footer a:hover {
+    color: #aaa;
+}

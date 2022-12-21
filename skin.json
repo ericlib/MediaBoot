@@ -1,0 +1,89 @@
+{
+	"name": "MediaBoot",
+	"version": "0.0.1",
+	"author": "Eric Chen",
+	"url": "https://github.com/ericlib/MediaBoot",
+	"descriptionmsg": "mediaboot-desc",
+	"namemsg": "skinname-mediaboot",
+	"license-name": "GPL-3.0+",
+	"type": "skin",
+	"requires": {
+		"MediaWiki": ">= 1.36.0"
+	},
+	"ValidSkinNames": {
+		"mediaboot": {
+            "displayname": "MediaBoot",
+			"class": "SkinMediaBoot",
+			"args": [{
+				"name": "MediaBoot",
+				"responsive": true,
+				"templateDirectory": "skins/MediaBoot/templates",
+				"styles": [
+					"skins.MediaBoot"
+				],
+				"messages": [
+					"sitetitle",
+					"search",
+					"tagline",
+					"navigation-heading"
+				],
+				"scripts": [
+					"skins.MediaBoot.js"
+				]
+			}]
+		}
+	},
+	"MessagesDirs": {
+		"MediaBoot": [
+			"i18n"
+		]
+	},
+	"ResourceModules": {
+		"skins.MediaBoot": {
+			"class": "ResourceLoaderSkinModule",
+			"features": {
+				"normalize": true,
+				"elements": true,
+				"content": true,
+				"content-parser-output": true,
+				"interface": true,
+				"interface-category": true,
+				"logo": true
+			},
+			"styles": {
+				"resources/bootstrap.min.css": {
+					"media": "screen"
+				},
+                "resources/screen.css": {
+					"media": "screen"
+				},
+                "resources/bootstrap-icons-1.5.0/bootstrap-icons.css": {
+					"media": "screen"
+				},
+				"resources/print.css": {
+					"media": "print"
+				}
+			}
+		},
+		"skins.MediaBoot.js": {
+			"scripts": [
+				"resources/bootstrap.bundle.min.js",
+                "resources/main.js"
+			]
+		}
+	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "",
+		"remoteSkinPath": "MediaBoot"
+	},
+	"ResourceModuleSkinStyles": {
+		"example": {
+			"+ext.echo.styles.badge": "resources/extensions/echo.styles.badge.less"
+		}
+	},
+	"AutoloadClasses": {
+		"SkinMediaBoot": "includes/SkinMediaBoot.php",
+        "DeToc": "includes/DeToc.php"
+	},
+	"manifest_version": 1
+}
