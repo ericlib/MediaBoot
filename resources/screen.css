@@ -94,6 +94,11 @@ a {
     color: #06c;
     text-decoration: none;
 }
+/* 未创建的超链接  显示红色 */
+a.new {
+    color: #c00;
+}
+
 
 a:hover {
     color: #000056;
