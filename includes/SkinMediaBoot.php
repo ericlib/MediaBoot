@@ -40,7 +40,8 @@ class SkinMediaboot extends SkinMustache {
         #导航组合，
         $data['nav_group'] = array_merge( array( $data['data-portlets-sidebar']['data-portlets-first'] ), 
                                           array_values( $data['data-portlets-sidebar']['array-portlets-rest'] ),
-                                         array( $data['data-portlets']['data-languages'] ) 
+                                          # php8后数组含空值会警告
+                                          isset($data['data-portlets']['data-languages']) ? array($data['data-portlets']['data-languages']) : array() 
                                         );
         #过滤可能空值的的导航如：data-languages
         $data['nav_group'] = array_filter($data['nav_group']); 
