@@ -30,7 +30,8 @@ class SkinMediaboot extends SkinMustache {
         #$new_body = DeToc::ExtractToc($out->getHTML(), $extracted_toc); 
         $new_body = DeToc::ExtractToc($data['html-body-content'], $extracted_toc); 
         $data['page_content'] = $new_body;
-        $data['page_toc'] = false;
+        // 设置false php8出现: Automatic conversion of false to array is deprecated in
+        $data['page_toc'] = [];
         if ( $extracted_toc != ""){
             $data['page_toc']['html'] = $extracted_toc; 
         }
